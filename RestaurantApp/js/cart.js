@@ -2,20 +2,28 @@
 //cart system
 // Dynamically populate the table with shopping list items.
 function ClearAll(){
-    localStorage.clear();
+    sessionStorage.removeItem("Chicken Sandwhich");
+	sessionStorage.removeItem("Burger");
+	sessionStorage.removeItem("Double CheeseBurger");
     doShowAll();
 }
 function doShowAll() {
     
-        var key = "";
-        var list = "<tr><th>Item</th><th>Value</th></tr>\n";
-        var i = 0;
+      
+        var list = "<tr><th>Item</th><th>Value</th></tr>\n"+ "<tr><td>" 
+			if(sessionStorage.getItem("Chicken Sandwhich")!=null){
+					list+= "Chicken Sandwhich" + "</td>\n<td>"
+					+ sessionStorage.getItem("Chicken Sandwhich") + "</td></tr>\n"
+				}
+			if(sessionStorage.getItem("Burger")!=null){
+				list += "<tr><td>" + "Burger" + "</td>\n<td>"
+				+ sessionStorage.getItem("Burger") + "</td></tr>\n"
+			}
+			if(sessionStorage.getItem("Duoble CheeseBurger")!=null){
+				list+= "<tr><td>" + "Double CheeeseBurger" + "</td>\n<td>"
+				+ sessionStorage.getItem("Double CheeeseBurger") + "</td></tr>\n";
+			}
 
-        for (i = 0; i <= localStorage.length-1; i++) {
-            key = localStorage.key(i);
-            list += "<tr><td>" + key + "</td>\n<td>"
-                    + localStorage.getItem(key) + "</td></tr>\n";
-        }
         //If no item exists in the cart.
         if (list == "<tr><th>Item</th><th>Value</th></tr>\n") {
             list += "<tr><td><i>empty</i></td>\n<td><i>empty</i></td></tr>\n";
@@ -28,7 +36,7 @@ function SaveItem() {
 
     var name = document.forms.ShoppingList.name.value;
     var data = document.forms.ShoppingList.data.value;
-    localStorage.setItem(name, data);
+    sessionStorage.setItem(name, data);
     doShowAll();
 
 }
@@ -38,10 +46,10 @@ function ModifyItem() {
     var name1 = document.forms.ShoppingList.name.value;
     var data1 = document.forms.ShoppingList.data.value;
 
-            if (localStorage.getItem(name1) !=null)
+            if (sessionStorage.getItem(name1) !=null)
             {
-              localStorage.setItem(name1,data1);
-              document.forms.ShoppingList.data.value = localStorage.getItem(name1);
+              sessionStorage.setItem(name1,data1);
+              document.forms.ShoppingList.data.value = sessionStorage.getItem(name1);
             }
 
     doShowAll();
@@ -50,7 +58,7 @@ function ModifyItem() {
 function RemoveItem()
 {
 var name=document.forms.ShoppingList.name.value;
-document.forms.ShoppingList.data.value=localStorage.removeItem(name);
+document.forms.ShoppingList.data.value=sessionStorage.removeItem(name);
 doShowAll();
 }
 

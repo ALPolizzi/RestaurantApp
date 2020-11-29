@@ -35,12 +35,18 @@
 					<div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" placeholder="Email" class="form-control" id = "emailField">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Password" class="form-control" id="passwordField">
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="submit" class="btn btn-success" id="signin">Sign in</button>
+			<script>document.getElementById("signin").addEventListener("click", function() {
+							
+							if(sessionStorage.getItem(document.getElementById("emailField").value) == null){
+								sessionStorage.setItem(document.getElementById("emailField").value, JSON.stringify(creds));
+							}
+						});</script>
           </form>
         </div><!--/.navbar-collapse -->
                 </nav>
@@ -58,12 +64,12 @@
 		    <section>
                         <h2 id="chickenButton">Classic Chicken Burger   - $5</h2>
 						<script>document.getElementById("chickenButton").addEventListener("click", function() {
-							var burgers = (parseInt(localStorage.getItem("Chicken Sandwhich"))+1).toString();
+							var burgers = (parseInt(sessionStorage.getItem("Chicken Sandwhich"))+1).toString();
 							if(burgers != "NaN"){
-								localStorage.setItem("Chicken Sandwhich", burgers);
+								sessionStorage.setItem("Chicken Sandwhich", burgers);
 							}
 							else{
-								localStorage.setItem("Chicken Sandwhich", 1);
+								sessionStorage.setItem("Chicken Sandwhich", 1);
 							}
 						});</script>
                         <p>Fresh, organic farm-rasied chicken breaded with our special home-made crust recipe on two delicious buns with lettuce, tomato, onion and our special zinger sauce. </p>
@@ -72,12 +78,12 @@
          
 				<h2 id="addBurger">Hamburger   - $7</h2>
 				<script>document.getElementById("addBurger").addEventListener("click", function() {
-							var burgers = (parseInt(localStorage.getItem("Burger"))+1).toString();
+							var burgers = (parseInt(sessionStorage.getItem("Burger"))+1).toString();
 							if(burgers != "NaN"){
-								localStorage.setItem("Burger", burgers);
+								sessionStorage.setItem("Burger", burgers);
 							}
 							else{
-								localStorage.setItem("Burger", 1);
+								sessionStorage.setItem("Burger", 1);
 							}
 						});</script>
                         <p>Fresh organic beef patty cooked to perfection on delicious buns with lettuce, tomato, onion with ketchup and home-made hot sauce.</p>
@@ -85,12 +91,12 @@
                     <section>
                         <h2 id= "addCBurger">Double Cheeseburger    - $8</h2>
 						<script>document.getElementById("addCBurger").addEventListener("click", function() {
-							var burgers = (parseInt(localStorage.getItem("Double Cheeseburger"))+1).toString();
+							var burgers = (parseInt(sessionStorage.getItem("Double CheeseBurger"))+1).toString();
 							if(burgers != "NaN"){
-								localStorage.setItem("Double Cheeseburger", burgers);
+								sessionStorage.setItem("Double CheeseBurger", burgers);
 							}
 							else{
-								localStorage.setItem("Double Cheeseburger", 1);
+								sessionStorage.setItem("Double CheeseBurger", 1);
 							}
 						});</script>
                         <p>Our delicious Hamburger with cheese and an additional patty when one just doesn't cut the appetite. </p>
