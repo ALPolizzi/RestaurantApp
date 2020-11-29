@@ -41,20 +41,30 @@
               <input type="password" placeholder="Password" class="form-control" id="passwordField">
             </div>
             <button type="submit" class="btn btn-success" id="signin">Sign in</button>
-			<script>document.getElementById("signin").addEventListener("click", function() {
-							
-							if(sessionStorage.getItem(document.getElementById("emailField").value) == null){
-								sessionStorage.setItem(document.getElementById("emailField").value, JSON.stringify(creds));
-							}
-						});</script>
+			<script>
+				document.getElementById("signin").addEventListener("click", function() {
+					var email = document.getElementById("emailField").value;
+					if(sessionStorage.getItem(email) == null){
+						localStorage.setItem(email: document.getElementById("passwordField").value);
+						sessionStorage.setItem("currentUser", JSON.stringify({email:document.getElementById("passwordField").value}));
+					}
+					else{
+						sessionStorage.setItem("currentUser", JSON.stringify({email:document.getElementById("passwordField").value}));
+						}
+				});
+			</script>
           </form>
         </div><!--/.navbar-collapse -->
                 </nav>
 				
             </header>
         </div>
-		
-        <div class="main-container">
+
+	
+
+
+
+<div class="main-container">
             <div class="main wrapper clearfix">
 
                 <header>
