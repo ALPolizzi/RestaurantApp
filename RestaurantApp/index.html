@@ -29,7 +29,7 @@
                 <nav>
                     <ul>
                         <li><a href="cart.html">Cart</a></li>
-                        <li><a href="info.html">Personal Info</a></li>
+                        <li><a href="info.html" id = "pinfo">Personal Info</a></li>
                         <li><a href="status.html">Order Status</a></li>
                     </ul>
 					<div id="navbar" class="navbar-collapse collapse">
@@ -46,16 +46,18 @@
 				
 					var email = document.getElementById("emailField").value;
 					
-					if(sessionStorage.getItem(email) == null){
-					
-						localStorage.setItem({email: document.getElementById("passwordField").value});
-						sessionStorage.setItem("currentUser", JSON.stringify({email:document.getElementById("passwordField").value}));
-						
+					if(sessionStorage.getItem(email) == null){ //if email not found, make new user
+						//store email : password pair
+						localStorage.setItem(email,document.getElementById("passwordField").value);
+						//update currentUser
+						sessionStorage.setItem("currentUser", email);
+						document.getElementById("pinfo").setInnerHTML = email +"s Info";
 					}
-					else{
-					
-						sessionStorage.setItem("currentUser", JSON.stringify({email:document.getElementById("passwordField").value}));
-						
+					else{ //Email found
+							if(sessionStorage.getItem(email) == document.getElementById("passwordField").value){//given email:pass matches password on record
+								sessionStorage.setItem("currentUser", email);
+								document.getElementById("pinfo").setInnerHTML = email +"s Info";
+							}					
 						}
 				});
 			</script>
