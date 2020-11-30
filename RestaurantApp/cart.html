@@ -26,26 +26,7 @@
 
 </head>
 <body onload="doShowAll()">
-	<script>
-		var list = "<tr><th>Item</th><th>Value</th></tr>\n";
-		var i = 0;
-
-	   
-			
-			list += "<tr><td>" + "Chicken Sandwhich" + "</td>\n<td>"
-					+ sessionStorage.getItem("Chicken Sandwhich") + "</td></tr>\n"
-					+= "<tr><td>" + "Burger" + "</td>\n<td>"
-					+ sessionStorage.getItem("Burger") + "</td></tr>\n"
-					+= "<tr><td>" + "Double CheeeseBurger" + "</td>\n<td>"
-					+ sessionStorage.getItem("Double CheeeseBurger") + "</td></tr>\n";
-		
-		//If no item exists in the cart.
-		if (list == "<tr><th>Item</th><th>Value</th></tr>\n") {
-			list += "<tr><td><i>empty</i></td>\n<td><i>empty</i></td></tr>\n";
-		}
-		//Bind the data to HTML table.
-		document.getElementById('list').innerHTML = list;
-	</script>
+	
 	<div class="header-container">
 		<header class="wrapper clearfix">
 			<h1 class="title">Our Restaurant</h1>
@@ -87,5 +68,37 @@
 			<h3>Come again soon!</h3>
 		</footer>
 	</div>
-	
+	<script>
+		
+		var i = 0;
+
+	   
+			
+		var list = "<tr><th>Item</th><th>Value</th></tr>\n";
+		var chicken = sessionStorage.getItem("Chicken Sandwhich");
+		var burger =  sessionStorage.getItem("Burger");
+		var dcburger =  sessionStorage.getItem("Double CheeseBurger");
+		
+		if(chicken != null){
+			list +=
+			"<tr><td>" + "Chicken Sandwhich" + "</td>\n<td>"
+			+ chicken + "</td></tr>\n";}
+				
+		if(burger != null){
+			list +=
+			"<tr><td>" + "Burger" + "</td>\n<td>"
+			+ burger + "</td></tr>\n";}
+			
+		if(dcburger != null){
+			list +=
+			"<tr><td>" + "Double CheeeseBurger" + "</td>\n<td>"
+			+ dcburger+ "</td></tr>\n";}
+		
+		//If no item exists in the cart.
+		if (list == "<tr><th>Item</th><th>Value</th></tr>\n") {
+			list += "<tr><td><i>empty</i></td>\n<td><i>empty</i></td></tr>\n";
+		}
+		//Bind the data to HTML table.
+		document.getElementById('list').innerHTML = list;
+	</script>
 </body>

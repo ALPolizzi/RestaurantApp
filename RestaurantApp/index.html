@@ -43,13 +43,19 @@
             <button type="submit" class="btn btn-success" id="signin">Sign in</button>
 			<script>
 				document.getElementById("signin").addEventListener("click", function() {
+				
 					var email = document.getElementById("emailField").value;
+					
 					if(sessionStorage.getItem(email) == null){
-						localStorage.setItem(email: document.getElementById("passwordField").value);
+					
+						localStorage.setItem({email: document.getElementById("passwordField").value});
 						sessionStorage.setItem("currentUser", JSON.stringify({email:document.getElementById("passwordField").value}));
+						
 					}
 					else{
+					
 						sessionStorage.setItem("currentUser", JSON.stringify({email:document.getElementById("passwordField").value}));
+						
 						}
 				});
 			</script>
