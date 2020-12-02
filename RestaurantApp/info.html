@@ -28,7 +28,7 @@
 	<script>
 		function doloadCustomerInfo(){
 			if(sessionStorage.getItem("currentUser")!= null){
-				document.getElementById("nameTag").innerHTML = "Welcome "+ (sessionStorage.getItem("currentUser"));
+				document.getElementById("nameTag").innerHTML = "Welcome "+ JSON.parse(sessionStorage.getItem("currentUser")).email;
 			}
 			else{
 				document.getElementById("nameTag").innerHTML = "Welcome Guest";

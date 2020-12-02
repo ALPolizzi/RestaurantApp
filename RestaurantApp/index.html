@@ -50,13 +50,14 @@
 						//store email : password pair
 						localStorage.setItem(email,document.getElementById("passwordField").value);
 						//update currentUser
-						sessionStorage.setItem("currentUser", email);
-						document.getElementById("pinfo").setInnerHTML = email +"s Info";
+						var newUser = {"email":email, "password":document.getElementById("passwordField").value, "address":"", "points":"0"}
+						sessionStorage.setItem("currentUser", JSON.stringify(newUser));
+						document.getElementById("pinfo").innerHTML = email +"s Info";
 					}
 					else{ //Email found
 							if(sessionStorage.getItem(email) == document.getElementById("passwordField").value){//given email:pass matches password on record
 								sessionStorage.setItem("currentUser", email);
-								document.getElementById("pinfo").setInnerHTML = email +"s Info";
+								document.getElementById("pinfo").innerHTML = email +"s Info";
 							}					
 						}
 				});
@@ -78,6 +79,7 @@
                 <header>
                         <h1>Menu</h1>
                         <p>All our fresh, hot and delicious food available at your fingertips</p>
+						<p>Click the title of one of our meals below to add it to your cart.</p>
                     </header>
 		    <section>
                         <h2 id="chickenButton">Classic Chicken Burger   - $5</h2>
