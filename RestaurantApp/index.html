@@ -25,12 +25,10 @@
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title">Our Restaurant</h1>
+                <h1 class="title">Burger Lounge</h1>
                 <nav>
                     <ul>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="info.html" id = "pinfo">Personal Info</a></li>
-                        <li><a href="status.html">Order Status</a></li>
+                        <li><a href="staff_view.html">Staff</a></li>
                     </ul>
 					<div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
@@ -46,19 +44,16 @@
 				
 					var email = document.getElementById("emailField").value;
 					
-					if(sessionStorage.getItem(email) == null){ //if email not found, make new user
-						//store email : password pair
-						localStorage.setItem(email,document.getElementById("passwordField").value);
-						//update currentUser
-						var newUser = {"email":email, "password":document.getElementById("passwordField").value, "address":"", "points":"0"}
-						sessionStorage.setItem("currentUser", JSON.stringify(newUser));
-						document.getElementById("pinfo").innerHTML = email +"s Info";
+					if(sessionStorage.getItem(email) == null){
+					
+						localStorage.setItem({email: document.getElementById("passwordField").value});
+						sessionStorage.setItem("currentUser", JSON.stringify({email:document.getElementById("passwordField").value}));
+						
 					}
-					else{ //Email found
-							if(sessionStorage.getItem(email) == document.getElementById("passwordField").value){//given email:pass matches password on record
-								sessionStorage.setItem("currentUser", email);
-								document.getElementById("pinfo").innerHTML = email +"s Info";
-							}					
+					else{
+					
+						sessionStorage.setItem("currentUser", JSON.stringify({email:document.getElementById("passwordField").value}));
+						
 						}
 				});
 			</script>
@@ -79,7 +74,6 @@
                 <header>
                         <h1>Menu</h1>
                         <p>All our fresh, hot and delicious food available at your fingertips</p>
-						<p>Click the title of one of our meals below to add it to your cart.</p>
                     </header>
 		    <section>
                         <h2 id="chickenButton">Classic Chicken Burger   - $5</h2>
