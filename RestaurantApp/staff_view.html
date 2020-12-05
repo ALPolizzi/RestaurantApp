@@ -1,0 +1,122 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+
+<html lang="en-US">
+<head>
+<title>Order Status</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title></title>
+
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="css/normalize.min.css">
+<link rel="stylesheet" href="css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="rating" content="General">
+<meta name="expires" content="never">
+<meta name="language" content="English, EN">
+
+
+
+
+</head>
+<body>
+
+	<div class="header-container">
+		<header class="wrapper clearfix">
+			<h1 class="title">Burger Lounge<br></h1>
+			<h2> <br> <br> Orders </h2>
+			<nav>
+				<ul>
+					<li><a href="index.html">Menu</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+
+
+	<div class="main-container">
+            <div class="main wrapper clearfix">   		
+		<h1>In Queue: </h1>
+
+		<input type="text" id="1CB" value="1 Chicken Burger" disabled>
+    		<button type="button" id="b1" onclick=func()>Completed! </button>
+ 
+Orders Completed: <input type="text" text_align: right id="orders_completed" value=0 disabled>  
+  <script>
+    function func() {    
+      document.getElementById("1CB").value = "";
+      document.getElementById("orders_completed").value++;
+      document.getElementById("b1").disabled="true"
+}
+</script>
+		
+		<br>
+		<br>
+		<input type="text" id="2HB" value="2 HamBurgers" disabled>
+    		<button type="button" id="b2" onclick=func2()>Completed! </button>
+ 
+<script>
+    function func2() {    
+      document.getElementById("2HB").value = "";
+      document.getElementById("orders_completed").value++;
+      document.getElementById("b2").disabled="true"
+}
+</script>
+		<br>
+		<br>
+		<input type="text" id="2DCB" value="2 Double CheeseBurgers" disabled>
+    		<button type="button" id="b3" onclick=func3()>Completed! </button>
+ 
+<script>
+    function func3() {    
+      document.getElementById("2DCB").value = "";
+      document.getElementById("orders_completed").value++;
+      document.getElementById("b3").disabled="true"
+}
+</script>
+
+<br>
+<br>
+<input type="text" id="3CB" value="3 Chicken Burgers" disabled>
+    		<button type="button" id="b4" onclick=func4()>Completed! </button>
+ 
+<script>
+    function func4() {    
+      document.getElementById("3CB").value = "";
+      document.getElementById("orders_completed").value++;
+      document.getElementById("b4").disabled="true"
+}
+</script>
+
+<br>
+<br>
+<input type="text" id="5O" value="6 Chicken Burgers" disabled>
+    		<button type="button" id="b5" onclick=func5()>Completed! </button>
+ 
+<script>
+    function func5() {    
+      document.getElementById("5O").value = "";
+      document.getElementById("orders_completed").value++;
+      document.getElementById("b5").disabled="true"
+}
+</script>
+
+Average Rating: <input type="text" text_align: right id="rating" value=4.7 disabled>
+
+
+
+                
+	</div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+	<div class="footer-container">
+		<footer class="wrapper">
+			<h3></h3>
+		</footer>
+	</div>
+	
+</body>
